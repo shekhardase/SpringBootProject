@@ -35,4 +35,8 @@ public class JournalEntryService {
 //        deleteById();
         journalEntryServiceRepository.deleteById(id);
     }
+
+    public void deleteall() {
+        journalEntryServiceRepository.deleteAll();
+    }
 }

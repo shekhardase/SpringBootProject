@@ -11,3 +11,5 @@ public interface JournalEntryServiceRepository extends MongoRepository<JournalEn
 
 
 // controller -- > Service -- > Repository
+
+

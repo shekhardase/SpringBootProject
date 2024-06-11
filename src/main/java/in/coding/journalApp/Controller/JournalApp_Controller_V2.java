@@ -16,6 +16,9 @@ public class JournalApp_Controller_V2 {
     @Autowired
     private JournalEntryService journalEntryService;
 
+//    @Autowired
+//    private JournalEntryServiceRepository jp;
+
     @GetMapping                                         // if map not provided (url)
     public List<JournalEntry> getAll() {                           // by default if we use get in postman we will redirect here
 //        return new ArrayList<>(journalEntries.values());
@@ -50,5 +53,11 @@ public class JournalApp_Controller_V2 {
         }
         journalEntryService.saveEntry(old);
         return old;
+    }
+
+    @DeleteMapping("/DeleteAll")
+    public boolean deleteall() {
+        journalEntryService.deleteall();
+        return true;
     }
 }
