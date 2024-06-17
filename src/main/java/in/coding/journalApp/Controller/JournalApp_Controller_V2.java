@@ -35,15 +35,12 @@ public class JournalApp_Controller_V2 {
     @PostMapping
     public ResponseEntity<JournalEntry> CreateEntry(@RequestBody JournalEntry myEntry) {                      // and for post we will get here
         try {
-
             myEntry.setDate(LocalDateTime.now());
             journalEntryService.saveEntry(myEntry);
             return new ResponseEntity<>(myEntry, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
-
     }
 
     @GetMapping("id/{myId}")
@@ -71,7 +68,6 @@ public class JournalApp_Controller_V2 {
             return new ResponseEntity<>(old, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
     }
 
     @DeleteMapping("/DeleteAll")
