@@ -3,6 +3,7 @@ package in.coding.journalApp.Entities;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 // pojo class
 @Getter
 @Data
+@NoArgsConstructor
 @Document(collection = "journal_entries")
 public class JournalEntry {
     @Id
