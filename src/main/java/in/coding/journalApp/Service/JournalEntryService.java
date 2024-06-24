@@ -22,11 +22,11 @@ public class JournalEntryService {
 
     @Transactional
     public void saveEntry(JournalEntry journalEntry, String UserName) {
-//        User user = userService.findByUserName(UserName);
+        //        User user = userService.findByUserName(UserName);
         User user = userService.findByUserName(UserName);
         JournalEntry saved = journalEntryServiceRepository.save(journalEntry);
         user.getJournalEntries().add(saved);
-        user.setUserName(null);
+//        user.setUserName(null);
         userService.saveEntry(user);
     }
 

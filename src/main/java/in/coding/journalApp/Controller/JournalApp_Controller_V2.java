@@ -43,8 +43,6 @@ public class JournalApp_Controller_V2 {
     @PostMapping("{UserName}")
     public ResponseEntity<JournalEntry> CreateEntry(@RequestBody JournalEntry myEntry, @PathVariable String UserName) {                      // and for post we will get here
         try {
-
-
             myEntry.setDate(LocalDateTime.now());
             journalEntryService.saveEntry(myEntry, UserName);
             return new ResponseEntity<>(myEntry, HttpStatus.CREATED);
