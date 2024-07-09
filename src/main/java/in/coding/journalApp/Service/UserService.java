@@ -27,6 +27,11 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public void saveNewUser(User user) {
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+    }
+
     public void removeEntry(User user) {
         userRepository.delete(user);
     }
