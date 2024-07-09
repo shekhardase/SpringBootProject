@@ -1,6 +1,5 @@
 package in.coding.journalApp.config;
 
-
 import in.coding.journalApp.Service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,10 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SpringSecurity extends WebSecurityConfigurerAdapter {
 
-
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -28,13 +25,13 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 .and()
                 .httpBasic();
+        http.csrf().disable();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {
